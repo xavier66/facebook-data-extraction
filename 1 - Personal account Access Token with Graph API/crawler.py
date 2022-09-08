@@ -1,3 +1,4 @@
+# https://developers.facebook.com/docs/graph-api/reference/post
 import requests
 import json
 import time
@@ -15,7 +16,7 @@ SLEEP = 3 # Seconds
 ACCESS_TOKEN = ''
 
 ''' For Cookie
-1. Reload https://graph.facebook.com/me?access_token={ACCESS_TOKEN} with F12
+1. Reload https://graph.facebook.com/me?access_token={YOUR_ACCESS_TOKEN_HERE} with F12
 2. Go to the Network Panel and copy value of the cookie param in Request Headers
 '''
 COOKIE = ''

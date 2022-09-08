@@ -60,8 +60,30 @@ Currently, this is the way to use the most. However, it may require you to authe
 
 **Note**: I only share how to get **Access Token** from Facebook itself. Revealing tokens can seriously affect your Facebook account. Please refrain from getting tokens from unknown sources!
 
-## Implement data extraction with Graph API
+## Data extraction with Graph API
 
-The source of this method is reused from [FBMediaDownloader](https://github.com/HoangTran0410/FBMediaDownloader) with a few more features added
+I wrote a [simple script](./crawler.py) to get data of posts from any page using [Facebook Graph API](https://developers.facebook.com/docs/graph-api)
 
-Updating...
+### I. Usage
+
+    python crawler.py
+
+This [script](./crawler.py) needs 2 important parameters:
+
+-   **ACCESS_TOKEN**: you can get this value with the [way](#get-full-permissions-access-token) mentioned above
+-   **COOKIE**: when you have the **ACCESS_TOKEN**, follow these steps to get the **COOKIE**:
+    -   Go to https://graph.facebook.com/me?access_token=YOUR_ACCESS_TOKEN_HERE
+    -   Press F12 and reload.
+    -   Go to the `Network` Panel and copy value of the `cookie` param in **Request Headers**.
+
+### II. Recommendation
+
+I have learned too much from this [repo](https://github.com/HoangTran0410/FBMediaDownloader). It's a NodeJs tool for auto download media from Facebook with lots of cool stuff:
+
+-   View album information (name, number of photos, link, ...)
+-   Download **timeline album** of a FB page: this kind of album is hidden, containing all the photos so far in that FB page, like [this album](https://www.facebook.com/groups/j2team.community/posts/1377217242610392/).
+-   Download any kind of album: `user`'s, `group`'s, or `page`'s.
+-   Download all photos/videos on the wall of an object (`user`/`group`/`page`).
+-   To be able to download the above items, it also provided [scripts](https://github.com/HoangTran0410/FBMediaDownloader/blob/master/scripts/bookmarks.js) to extract `album_id` / `user_id` / `group_id` / `page_id`.
+
+The only disadvantage is that the description and instructions of this [repo](https://github.com/HoangTran0410/FBMediaDownloader) are in Vietnamese, _my language_. But I think it's not too hard to understand, you can watch its [instruction video](https://www.youtube.com/watch?v=g4zh9p-QfAQ) for more information. Hopefully, in the future, the author will update the description as well as the instructions in English.
