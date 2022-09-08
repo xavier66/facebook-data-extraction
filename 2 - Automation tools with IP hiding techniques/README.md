@@ -2,28 +2,40 @@
 
 In this method, I will write example scripts to extract id, user info, content, date, comments, and replies of posts.
 
-**Note**: These scripts just working for **a Facebook page when not sign-in**, not group or any other object.
-
 > Demo: https://www.youtube.com/watch?v=Fx0UWOzYsig
+
+**Note**:
+
+-   These scripts just working for **a Facebook page when not sign-in**, not group or any other object.
+-   Maybe you will need to edit some of the CSS Selectors in the scripts, as Facebook might have changed them at the time of your use.
 
 ## Knowledge
 
 ### I. Automation tools
 
-Updating...
+After many research, I think these 3 automation tools would be the wise choices:
+
+-   [Selenium](https://www.selenium.dev): this seems quite slow.
+-   [Puppeteer](https://pptr.dev): this can only use on Chrome.
+-   [Playwright](https://playwright.dev): this seems to overcome the disadvantages of the 2 above.
+
+You can read the comparisons of the above tools in these link:
+
+-   https://www.bestproxyreviews.com/playwright-vs-puppeteer-vs-selenium
+-   https://blog.checklyhq.com/cypress-vs-selenium-vs-playwright-vs-puppeteer-speed-comparison
 
 ### II. IP hiding techniques
 
 | Method       | Speed rating | Cost         | Common risk                             | General Evaluation |
 | ------------ | :----------: | ------------ | --------------------------------------- | ------------------ |
-| VPN service  | `2`          | Usually paid | Some free providers might not be secure | Best way           |
-| Tor browser  | `4`          | Free         | Can be tracked by some rogue nodes      | Slowest choice     |
-| Proxy server | `3`          | Usually free | Data routing not private as VPNs        | Riskiest method    |
-| Public WiFi  | `1`          | Free         | Some might not be safe                  | Long distance way  |
+| VPN service  |     `2`      | Usually paid | Some free providers might not be secure | Best way           |
+| Tor browser  |     `4`      | Free         | Can be tracked by some rogue nodes      | Slowest choice     |
+| Proxy server |     `3`      | Usually free | Data routing not private as VPNs        | Riskiest method    |
+| Public WiFi  |     `1`      | Free         | Some might not be safe                  | Long distance way  |
 
 ➔ Learn more about general information of above methods from this [site](https://whatismyipaddress.com/hide-ip).
 
-**IMPORTANT**: Nothing above is absolutely safe and secure. *Carefulness is never excessive*. You will need to do further research about them if you want more secure to your data & privacy.
+**IMPORTANT**: Nothing above is absolutely safe and secure. _Carefulness is never excessive_. You will need to do further research about them if you want more secure to your data & privacy.
 
 ## Overview the scripts
 
@@ -34,7 +46,7 @@ Updating...
 3.  Checking redirect.
 4.  Can be run with Incognito window.
 5.  Simplifying browser to minimize time complexity.
-6.  Delay with random intervals every *loading more* times to simulate human behavior.
+6.  Delay with random intervals every _loading more_ times to simulate human behavior.
 7.  Not required sign-in to **prevent Checkpoint**.
 8.  Hiding IP address to **prevent from banning** by:
     -   Collecting proxies and filtering the slowest ones from:
@@ -48,7 +60,7 @@ Updating...
 ### II. Weaknesses
 
 -   Unable to detect some failed responses. Example: **Rate limit exceeded** (Facebook prevents from loading more).
-     
+
     ![](https://github.com/18520339/facebook-crawling/blob/master/2%20-%20Automation%20tools%20with%20IP%20hiding%20techniques/img/rate_limit_exceeded.png?raw=true)
 
     ➔ Have to run with `HEADLESS = False` to detect manually.
